@@ -7,19 +7,19 @@ public class Product {
     private String productName;
     private String color;
     private int image_code;
-    public static int quantity = 0;
+    public static int quantity;
     private String description;
 
     public Product() {
 
     }
 
-    public Product(String team, String productName, String color, String description, int image_code) {
+    public Product(String team, String productName, String color, String description, int image_code, int quantity) {
         this.team = team;
         this.productName = productName;
         this.color = color;
         this.image_code = image_code;
-        quantity++;
+        Product.quantity = quantity;
     }
 
     public String getTeam() {

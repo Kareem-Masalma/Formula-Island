@@ -71,5 +71,27 @@ public class MainActivity extends AppCompatActivity {
         products.add(new Product("Ferrari", "T-Shirt", "White", "Scuderia Ferrari Race Chrome Large Shield T-Shirt by Puma",R.drawable.ferrari_white_tshirt, 20));
         products.add(new Product("Ferrari", "T-Shirt", "Yellow", "Scuderia Ferrari Team Reflective T-Shirt",R.drawable.ferrari_yellow_tshirt, 20));
 
+        products.add(new Product("McLearn", "Cap", "Orange", "", R.drawable.mclearn_lando_cap, 20));
+        products.add(new Product("McLearn", "Cap", "Orange", "", R.drawable.mclearn_orange_cap, 20));
+        products.add(new Product("McLearn", "Cap", "White", "", R.drawable.mclearn_white_cap, 20));
+        products.add(new Product("McLearn", "Cap", "Pink", "", R.drawable.mclearn_pink_cap, 20));
+        products.add(new Product("McLearn", "Cap", "Black and White", "", R.drawable.mclearn_black_cap, 20));
+        products.add(new Product("McLearn", "Figure", "Green", "", R.drawable.mclearn_lando_figure, 20));
+        products.add(new Product("McLearn", "Figure", "Red", "", R.drawable.mclearn_oscar_figure, 20));
+        products.add(new Product("McLearn", "Figure", "White", "", R.drawable.senna_funko, 20));
+        products.add(new Product("McLearn", "Lego", "Orange", "", R.drawable.mclearn_mcl38_lego, 20));
+        products.add(new Product("McLearn", "Lego", "White", "", R.drawable.senna_mp4_lego, 20));
+        products.add(new Product("McLearn", "T-Shirt", "Black", "", R.drawable.mercedes_black_tshirt, 20));
+        products.add(new Product("McLearn", "T-Shirt", "Black and Orange", "", R.drawable.mclearn_black_and_orange_tshirt, 20));
+        products.add(new Product("McLearn", "T-Shirt", "Green", "", R.drawable.mclearn_green_tshirt, 20));
+        products.add(new Product("McLearn", "T-Shirt", "White", "", R.drawable.mclearn_white_tshirt, 20));
+        products.add(new Product("McLearn", "Gilet", "Black", "", R.drawable.mclearn_black_and_orange_gilet, 20));
+        products.add(new Product("McLearn", "Jacket", "Black", "", R.drawable.mclearn_black_and_white_track, 20));
+        products.add(new Product("McLearn", "Hoodie", "Orange", "", R.drawable.mclearn_orange_hoodies, 20));
+        products.add(new Product("McLearn", "Hoodie", "Pink", "", R.drawable.mclearn_pink_hoodies, 20));
+        products.add(new Product("McLearn", "Hoodie", "Green", "", R.drawable.mclearn_green_hoodies, 20));
+        products.add(new Product("McLearn", "Polo", "Orange", "", R.drawable.mclearn_orange_polo, 20));
+
+
     }
 }

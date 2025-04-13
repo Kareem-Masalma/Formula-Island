@@ -7,4 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="56dp"
+        android:clickable="true"
+        app:backgroundTint="#aa132b"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/cart" />
 </androidx.constraintlayout.widget.ConstraintLayout>

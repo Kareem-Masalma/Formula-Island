@@ -71,26 +71,41 @@ public class MainActivity extends AppCompatActivity {
         products.add(new Product("Ferrari", "T-Shirt", "White", "Scuderia Ferrari Race Chrome Large Shield T-Shirt by Puma",R.drawable.ferrari_white_tshirt, 20));
         products.add(new Product("Ferrari", "T-Shirt", "Yellow", "Scuderia Ferrari Team Reflective T-Shirt",R.drawable.ferrari_yellow_tshirt, 20));
 
-        products.add(new Product("McLearn", "Cap", "Orange", "", R.drawable.mclearn_lando_cap, 20));
-        products.add(new Product("McLearn", "Cap", "Orange", "", R.drawable.mclearn_orange_cap, 20));
-        products.add(new Product("McLearn", "Cap", "White", "", R.drawable.mclearn_white_cap, 20));
-        products.add(new Product("McLearn", "Cap", "Pink", "", R.drawable.mclearn_pink_cap, 20));
-        products.add(new Product("McLearn", "Cap", "Black and White", "", R.drawable.mclearn_black_cap, 20));
-        products.add(new Product("McLearn", "Figure", "Green", "", R.drawable.mclearn_lando_figure, 20));
-        products.add(new Product("McLearn", "Figure", "Red", "", R.drawable.mclearn_oscar_figure, 20));
-        products.add(new Product("McLearn", "Figure", "White", "", R.drawable.senna_funko, 20));
-        products.add(new Product("McLearn", "Lego", "Orange", "", R.drawable.mclearn_mcl38_lego, 20));
-        products.add(new Product("McLearn", "Lego", "White", "", R.drawable.senna_mp4_lego, 20));
-        products.add(new Product("McLearn", "T-Shirt", "Black", "", R.drawable.mercedes_black_tshirt, 20));
-        products.add(new Product("McLearn", "T-Shirt", "Black and Orange", "", R.drawable.mclearn_black_and_orange_tshirt, 20));
-        products.add(new Product("McLearn", "T-Shirt", "Green", "", R.drawable.mclearn_green_tshirt, 20));
-        products.add(new Product("McLearn", "T-Shirt", "White", "", R.drawable.mclearn_white_tshirt, 20));
-        products.add(new Product("McLearn", "Gilet", "Black", "", R.drawable.mclearn_black_and_orange_gilet, 20));
-        products.add(new Product("McLearn", "Jacket", "Black", "", R.drawable.mclearn_black_and_white_track, 20));
-        products.add(new Product("McLearn", "Hoodie", "Orange", "", R.drawable.mclearn_orange_hoodies, 20));
-        products.add(new Product("McLearn", "Hoodie", "Pink", "", R.drawable.mclearn_pink_hoodies, 20));
-        products.add(new Product("McLearn", "Hoodie", "Green", "", R.drawable.mclearn_green_hoodies, 20));
-        products.add(new Product("McLearn", "Polo", "Orange", "", R.drawable.mclearn_orange_polo, 20));
+        products.add(new Product("McLaren", "Cap", "Orange", "McLaren New Era Lando Norris 9SEVENTY Pre Curved Cap", R.drawable.mclearn_lando_cap, 20));
+        products.add(new Product("McLaren", "Cap", "Orange", "McLaren New Era Essential 9FORTY Cap - Papaya", R.drawable.mclearn_orange_cap, 20));
+        products.add(new Product("McLaren", "Cap", "White", "McLaren New Era 9SEVENTY Special Edition Miami GP Cap", R.drawable.mclearn_white_cap, 20));
+        products.add(new Product("McLaren", "Cap", "Pink", "McLaren New Era Seasonal 9TWENTY Cap", R.drawable.mclearn_pink_cap, 20));
+        products.add(new Product("McLaren", "Cap", "Black and White", "McLaren New Era 9SEVENTY Special Edition Japan GP Cap", R.drawable.mclearn_black_cap, 20));
+        products.add(new Product("McLaren", "Figure", "Green", "McLaren Mighty Jaxx 2023 Lando Norris Collectable Figurine", R.drawable.mclearn_lando_figure, 20));
+        products.add(new Product("McLaren", "Figure", "Red", "McLaren Mighty Jaxx 2023 Oscar Piastri Collectable Figurine", R.drawable.mclearn_oscar_figure, 20));
+        products.add(new Product("McLaren", "Figure", "White", "Ayrton Senna Funko", R.drawable.senna_funko, 20));
+        products.add(new Product("McLaren", "Lego", "Orange", "McLaren F1® Team LEGO® MCL38 Race Car", R.drawable.mclearn_mcl38_lego, 20));
+        products.add(new Product("McLaren", "Lego", "White", "LEGO® Icons McLaren MP4/4 & Ayrton Senna Set 10330", R.drawable.senna_mp4_lego, 20));
+        products.add(new Product("McLaren", "T-Shirt", "Black", "McLaren Essentials T-Shirt", R.drawable.mercedes_black_tshirt, 20));
+        products.add(new Product("McLaren", "T-Shirt", "Black and Orange", "McLaren Essentials T-Shirt - Black", R.drawable.mclearn_black_and_orange_tshirt, 20));
+        products.add(new Product("McLaren", "T-Shirt", "Green", "McLaren Essentials T-Shirt", R.drawable.mclearn_green_tshirt, 20));
+        products.add(new Product("McLaren", "T-Shirt", "White", "McLaren Essential Logo T-Shirt", R.drawable.mclearn_white_tshirt, 20));
+        products.add(new Product("McLaren", "Gilet", "Black", "McLaren 2025 Team Hybrid Gilet", R.drawable.mclearn_black_and_orange_gilet, 20));
+        products.add(new Product("McLaren", "Jacket", "Black", "McLaren x Mitchell & Ness Las Vegas GP Track Jacket", R.drawable.mclearn_black_and_white_track, 20));
+        products.add(new Product("McLaren", "Hoodie", "Orange", "McLaren 2025 Team Hooded Sweat", R.drawable.mclearn_orange_hoodies, 20));
+        products.add(new Product("McLaren", "Hoodie", "Pink", "McLaren Essential Logo Hoodie", R.drawable.mclearn_pink_hoodies, 20));
+        products.add(new Product("McLaren", "Hoodie", "Green", "McLaren Essential Logo Hoodie", R.drawable.mclearn_green_hoodies, 20));
+        products.add(new Product("McLaren", "Polo", "Orange", "McLaren 2025 Team Polo", R.drawable.mclearn_orange_polo, 20));
+
+        products.add(new Product("Mercedes", "Cap", "Black", "Mercedes AMG Petronas adidas F1 2025 Team Cap", R.drawable.mercedes_black_cap, 20));
+        products.add(new Product("Mercedes", "Cap", "White", "Mercedes AMG Petronas adidas F1 2025 Team Cap", R.drawable.mercedes_white_cap, 20));
+        products.add(new Product("Mercedes", "T-Shirt", "Black", "Mercedes AMG Petronas adidas F1 2025 Team Driver T-Shirt ", R.drawable.mercedes_black_tshirt, 20));
+        products.add(new Product("Mercedes", "Sweatshirt", "White", "Mercedes AMG Petronas F1 Crew Sweat", R.drawable.mercedes_white_sweat, 20));
+        products.add(new Product("Mercedes", "Sweatshirt", "Black", "Mercedes AMG Petronas F1 Crew Sweat", R.drawable.mercedes_black_sweat, 20));
+        products.add(new Product("Mercedes", "Bag", "Black", "Mercedes AMG Petronas F1 Backpack", R.drawable.mercedes_black_backpack, 20));
+        products.add(new Product("Mercedes", "Figure", "White", "Mercedes Mighty Jaxx 2023 Lewis Hamilton Collectable Figurine", R.drawable.mercedes_hamilton_funko, 20));
+        products.add(new Product("Mercedes", "Helmet", "Green", "Mercedes AMG Petronas Lewis Hamilton 2024 1:5 Spark Model Helmet", R.drawable.mercedes_hamilton_helmet, 20));
+        products.add(new Product("Mercedes", "Helmet", "Blue", "Mercedes AMG Petronas George Russell 2024 1:5 Spark Model Helmet", R.drawable.mercedes_russell_helmet, 20));
+        products.add(new Product("Mercedes", "Figure", "White", "Mercedes AMG Petronas F1 No.44 W13 E Performance 4th Bahrain GP - George Russell 1:18 Model", R.drawable.mercedes_w13, 20));
+        products.add(new Product("Mercedes", "Figure", "Black", "Mercedes AMG Petronas F1 No.44 W14 E Performance Australian GP 2nd Place - Lewis Hamilton 1:18 Model", R.drawable.mercedes_w14, 20));
+        products.add(new Product("Mercedes", "Lego", "Black", "Mercedes-AMG F1® LEGO® W15 Race Car", R.drawable.mercedes_w14_lego, 20));
+        products.add(new Product("Mercedes", "Hoodie", "Green", "Mercedes AMG Petronas F1 Tie Dye Hoodie", R.drawable.mercedes_green_hoodies, 20));
+        products.add(new Product("Mercedes", "Jacket", "Black", "Mercedes AMG Petronas Padded Jacket", R.drawable.mercedes_black_coat, 20));
 
 
     }

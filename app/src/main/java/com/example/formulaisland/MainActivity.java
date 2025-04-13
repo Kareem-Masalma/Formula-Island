@@ -108,5 +108,19 @@ public class MainActivity extends AppCompatActivity {
         products.add(new Product("Mercedes", "Jacket", "Black", "Mercedes AMG Petronas Padded Jacket", R.drawable.mercedes_black_coat, 20));
 
 
+        products.add(new Product("Red bull", "T_Shirt", "Dutch", "Oracle Red Bull Racing Max Verstappen Driver T-Shirt", R.drawable.redbull_dutch_tshirt, 20));
+        products.add(new Product("Red bull", "T_Shirt", "White", "Oracle Red Bull Racing Large Logo T-shirt", R.drawable.redbull_white_tshirt, 20));
+        products.add(new Product("Red bull", "T_Shirt", "Navy", "Red Bull Racing 2025 Team Set Up T-Shirt", R.drawable.redbull_tshirt, 20));
+        products.add(new Product("Red bull", "T_Shirt", "Orange", "Oracle Red Bull Racing Max Verstappen Driver T-Shirt - Orange", R.drawable.redbull_orange_tshirt, 20));
+        products.add(new Product("Red bull", "Hoodie", "Black", "Red Bull Racing 2025 Team Hoodie", R.drawable.redbull_hoodies, 20));
+        products.add(new Product("Red bull", "Helmet", "Navy", "VCARB Yuki Tsunoda 2024 1:5 Spark Model Helmet", R.drawable.redbull_yuki_helmet, 20));
+        products.add(new Product("Red bull", "Cap", "Navy", "Red Bull Racing New Era Max Verstappen 9SEVENTY Piped Cap - Navy", R.drawable.redbull_verstappen_cap, 20));
+        products.add(new Product("Red bull", "Cap", "Green", "Red Bull Racing New Era Contrast E-Frame Trucker", R.drawable.redbull_green_cap, 20));
+        products.add(new Product("Red bull", "Cap", "Purple", "Oracle Red Bull Racing New Era Seasonal 9FIFTY Pre Curved Cap", R.drawable.redbull_purble_cap, 20));
+        products.add(new Product("Red bull", "Lego", "Navy Blue", "Oracle Red Bull Racing RB20 F1® LEGO® Race Car", R.drawable.redbull_rb20_lego, 20));
+        products.add(new Product("Red bull", "Lego", "Navy", "Oracle Red Bull Racing RB18 No.1 Winner Miami GP - Max Verstappen - 1:18 Model", R.drawable.redbull_rb18, 20));
+
+
+
     }
 }

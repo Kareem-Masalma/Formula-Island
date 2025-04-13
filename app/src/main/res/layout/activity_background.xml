@@ -9,8 +9,16 @@
     android:orientation="vertical"
     tools:context=".Background">
 
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/logo" />
+
+
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/label"
+        android:id="@+id/labels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -18,32 +26,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/orbitron_bold"
             android:text="@string/wear"
-            android:textSize="50sp"
-            android:layout_gravity="center"
             android:textColor="#aa132b"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font"
-            />
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/orbitron_bold"
             android:text="@string/the"
-            android:layout_gravity="center"
-            android:textSize="50sp"
             android:textColor="#aa132b"
-            android:textStyle="bold"/>
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/orbitron_bold"
             android:text="@string/speed"
-            android:textSize="50sp"
             android:textColor="#aa132b"
-            android:textStyle="bold"/>
+            android:textSize="50sp"
+            android:textStyle="bold" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <View
@@ -52,6 +60,7 @@
         android:layout_weight="1" />
 
     <Button
+        android:id="@+id/btnShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

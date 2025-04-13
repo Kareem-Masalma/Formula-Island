@@ -9,6 +9,7 @@ public class Product {
     private int image_code;
     public static int quantity;
     private String description;
+    public static final String DATA = "Products";
 
     public Product() {
 

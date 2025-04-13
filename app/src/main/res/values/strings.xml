@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Formula Island</string>
+    <string name="shop_now">Shop Now</string>
+    <string name="box">Box</string>
+    <string name="wear">WEAR</string>
+    <string name="the">THE</string>
+    <string name="speed">SPEED</string>
 </resources>

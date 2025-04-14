@@ -6,7 +6,7 @@ public class Product {
     private String team;
     private String productName;
     private String color;
-    private int image_code;
+    private int imageCode;
     public static int quantity;
     private String description;
     public static final String DATA = "Products";
@@ -19,8 +19,9 @@ public class Product {
         this.team = team;
         this.productName = productName;
         this.color = color;
-        this.image_code = image_code;
+        this.imageCode = image_code;
         Product.quantity = quantity;
+        this.description = description;
     }
 
     public String getTeam() {
@@ -47,12 +48,12 @@ public class Product {
         this.color = color;
     }
 
-    public int getImage_code() {
-        return image_code;
+    public int getImageCode() {
+        return imageCode;
     }
 
-    public void setImage_code(int image_code) {
-        this.image_code = image_code;
+    public void setImageCode(int imageCode) {
+        this.imageCode = imageCode;
     }
 
     public static int getQuantity() {
@@ -63,6 +64,14 @@ public class Product {
         Product.quantity = quantity;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -70,7 +79,8 @@ public class Product {
                 "team='" + team + '\'' +
                 ", productName='" + productName + '\'' +
                 ", color='" + color + '\'' +
-                ", image_code=" + image_code +
+                ", imageCode=" + imageCode +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

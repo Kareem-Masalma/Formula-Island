@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".Cart">
+    tools:context=".CartScene">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/address"
+        android:id="@+id/spAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
@@ -40,6 +40,20 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/your_cart_is_empty"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+
     <ListView
         android:id="@+id/lvCart"
         android:layout_width="match_parent"
@@ -49,7 +63,7 @@
         android:dividerHeight="1dp" />
 
     <Button
-        android:id="@+id/check"
+        android:id="@+id/btnCheck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

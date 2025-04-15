@@ -61,6 +61,17 @@ public class Dashboard extends AppCompatActivity {
         getData();
         addProductsList();
         searchAction();
+        cartAction();
+    }
+
+    private void cartAction() {
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, CartScene.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void searchAction() {
@@ -129,6 +140,9 @@ public class Dashboard extends AppCompatActivity {
         if (!cartString.isBlank())
             Cart.cart = gson.fromJson(cartString, new TypeToken<List<Product>>() {
             }.getType());
+
+        Log.d("CheckPoint", "Products: " + productsString);
+        Log.d("CheckPoint", "Carts: " + cartString);
     }
 
     private void defineViews() {

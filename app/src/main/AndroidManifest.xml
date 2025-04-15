@@ -13,7 +13,7 @@
         android:theme="@style/Theme.FormulaIsland"
         tools:targetApi="31">
         <activity
-            android:name=".Cart"
+            android:name=".CartScene"
             android:exported="false" />
         <activity
             android:name=".Search"

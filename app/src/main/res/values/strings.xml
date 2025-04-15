@@ -14,4 +14,8 @@
     <string name="product_title">Product Title</string>
     <string name="price">Price:</string>
     <string name="quantity">Quantity:</string>
+    <string name="check_out">Check Out</string>
+    <string name="remember_my_choice">Remember my Choice</string>
+    <string name="your_cart">Your Cart</string>
+    <string name="delivery_address">Delivery Address</string>
 </resources>

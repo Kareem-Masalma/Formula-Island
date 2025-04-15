@@ -24,11 +24,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.formulaisland.dataaccess.Cart;
 import com.example.formulaisland.dataaccess.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dashboard extends AppCompatActivity {
@@ -59,12 +61,22 @@ public class Dashboard extends AppCompatActivity {
         addProductsList();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Gson gson = new Gson();
+        String products_json = gson.toJson(products);
+        String cart_json = gson.toJson(Cart.cart);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(Product.DATA, products_json);
+        editor.putString(Cart.CART, cart_json);
+        editor.apply();
+    }
+
     private void addProductsList() {
-        Log.d("Before the Adapter", "Here");
         ProductAdapter adapter = new ProductAdapter(this, products);
-        Log.d("After the Adapter", "Here");
         lvProducts.setAdapter(adapter);
-        Log.d("After the list view adapter", "Here");
         lvProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -81,9 +93,16 @@ public class Dashboard extends AppCompatActivity {
     private void getData() {
         Gson gson = new Gson();
         pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String productsString = pref.getString(Product.DATA, "No Products");
-        this.products = gson.fromJson(productsString, new TypeToken<List<Product>>() {
-        }.getType());
+        String productsString = pref.getString(Product.DATA, "");
+        String cartString = pref.getString(Cart.CART, "");
+        if (!productsString.isBlank())
+            this.products = gson.fromJson(productsString, new TypeToken<List<Product>>() {
+            }.getType());
+        else
+            this.products = new ArrayList<>();
+        if (!cartString.isBlank())
+            Cart.cart = gson.fromJson(cartString, new TypeToken<List<Product>>() {
+            }.getType());
     }
 
     private void defineViews() {

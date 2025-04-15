@@ -7,7 +7,7 @@ public class Product {
     private String productName;
     private String color;
     private int imageCode;
-    public static int quantity;
+    private int quantity;
     private String description;
     private double price;
     public static final String DATA = "Products";
@@ -21,7 +21,7 @@ public class Product {
         this.productName = productName;
         this.color = color;
         this.imageCode = image_code;
-        Product.quantity = quantity;
+        this.quantity = quantity;
         this.description = description;
         this.price = price;
     }
@@ -58,12 +58,12 @@ public class Product {
         this.imageCode = imageCode;
     }
 
-    public static int getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public static void setQuantity(int quantity) {
-        Product.quantity = quantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDescription() {
@@ -94,4 +94,12 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Product)
+            return this.imageCode == ((Product) o).getImageCode();
+        return false;
+    }
+
 }

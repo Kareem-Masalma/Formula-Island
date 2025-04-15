@@ -12,4 +12,6 @@
     <string name="add_to_cart">Add to Cart</string>
     <string name="description">Description</string>
     <string name="product_title">Product Title</string>
+    <string name="price">Price:</string>
+    <string name="quantity">Quantity:</string>
 </resources>

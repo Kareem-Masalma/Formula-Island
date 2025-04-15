@@ -5,27 +5,43 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectedProduct"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".SelectedProduct">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"/>
+        app:srcCompat="@drawable/logo" />
 
     <ImageView
+        android:id="@+id/ivProduct"
         android:layout_width="wrap_content"
         android:layout_height="400dp"
-        app:srcCompat="@drawable/aston_martin_am24_lego"
         android:scaleType="fitStart"
-        android:id="@+id/ivProduct"/>
+        app:srcCompat="@drawable/aston_martin_am24_lego" />
 
     <TextView
+        android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/description"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity"
         android:textSize="18sp"
-        android:id="@+id/tvDescription"/>
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -33,7 +49,7 @@
         android:layout_weight="1" />
 
     <Button
-        android:id="@+id/btnShop"
+        android:id="@+id/btnCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

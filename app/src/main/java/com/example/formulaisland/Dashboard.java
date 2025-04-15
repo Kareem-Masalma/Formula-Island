@@ -24,6 +24,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.formulaisland.adapters.ProductAdapter;
 import com.example.formulaisland.dataaccess.Cart;
 import com.example.formulaisland.dataaccess.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -59,6 +60,31 @@ public class Dashboard extends AppCompatActivity {
         defineViews();
         getData();
         addProductsList();
+        searchAction();
+    }
+
+    private void searchAction() {
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String search = edSearch.getText().toString();
+                if (search.isBlank())
+                    return;
+                List<Product> result = new ArrayList<>();
+                for (int i = 0; i < products.size(); i++) {
+                    Product product = products.get(i);
+                    if (product.getDescription().contains(search) || product.getColor().contains(search)
+                            || product.getProductName().contains(search) || product.getTeam().contains(search))
+                        result.add(product);
+                }
+
+                Intent intent = new Intent(Dashboard.this, Search.class);
+                Gson gson = new Gson();
+                String searchItems = gson.toJson(result);
+                intent.putExtra(Search.SEARCH, searchItems);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -111,36 +137,4 @@ public class Dashboard extends AppCompatActivity {
         this.edSearch = findViewById(R.id.edSearch);
         this.lvProducts = findViewById(R.id.lvProducts);
     }
-
-    class ProductAdapter extends ArrayAdapter<Product> {
-        private Context context;
-        private List<Product> productList;
-
-        public ProductAdapter(Context context, List<Product> products) {
-            super(context, 0, products);
-            this.productList = products;
-            this.context = context;
-        }
-
-
-        @NonNull
-        @Override
-        public View getView(int i, View convertView, @NonNull ViewGroup parent) {
-
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.products_list, parent, false);
-            }
-
-            Product product = productList.get(i);
-
-            ImageView image = convertView.findViewById(R.id.pImage);
-            TextView description = convertView.findViewById(R.id.pTitle);
-            Log.d("CheckPoint", "Product: " + product.getDescription() + ", ImgCode: " + product.getImageCode());
-            image.setImageResource(product.getImageCode());
-            description.setText(product.getDescription());
-
-            return convertView;
-        }
-    }
-
 }

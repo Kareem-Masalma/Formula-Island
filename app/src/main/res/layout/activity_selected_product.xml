@@ -33,10 +33,13 @@
         android:layout_weight="1" />
 
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/btnShop"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_to_cart"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#aa132b"
-        android:id="@+id/btnAddToCart"/>
+        android:text="@string/add_to_cart"
+        android:textSize="24sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

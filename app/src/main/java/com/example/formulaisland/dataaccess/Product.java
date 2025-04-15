@@ -9,19 +9,21 @@ public class Product {
     private int imageCode;
     public static int quantity;
     private String description;
+    private double price;
     public static final String DATA = "Products";
 
     public Product() {
 
     }
 
-    public Product(String team, String productName, String color, String description, int image_code, int quantity) {
+    public Product(String team, String productName, String color, String description, int image_code, int quantity, double price) {
         this.team = team;
         this.productName = productName;
         this.color = color;
         this.imageCode = image_code;
         Product.quantity = quantity;
         this.description = description;
+        this.price = price;
     }
 
     public String getTeam() {
@@ -72,6 +74,14 @@ public class Product {
         this.description = description;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -81,6 +91,7 @@ public class Product {
                 ", color='" + color + '\'' +
                 ", imageCode=" + imageCode +
                 ", description='" + description + '\'' +
+                ", price=" + price +
                 '}';
     }
 }

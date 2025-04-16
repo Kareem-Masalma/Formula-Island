@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".SelectedProduct">
 
     <ImageView
@@ -15,7 +16,7 @@
 
     <ImageView
         android:id="@+id/ivProduct"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="400dp"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/aston_martin_am24_lego" />
@@ -25,7 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/description"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/tvQuantity"
@@ -33,7 +35,8 @@
         android:layout_height="wrap_content"
         android:text="@string/quantity"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/tvPrice"
@@ -41,7 +44,24 @@
         android:layout_height="wrap_content"
         android:text="@string/price"
         android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_quantity"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
         android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:padding="8dp" />
 
     <View
         android:layout_width="match_parent"
@@ -56,6 +76,7 @@
         android:layout_marginBottom="30dp"
         android:backgroundTint="#aa132b"
         android:text="@string/add_to_cart"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@android:color/white" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

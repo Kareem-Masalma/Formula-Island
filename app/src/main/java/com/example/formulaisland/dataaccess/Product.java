@@ -11,6 +11,7 @@ public class Product {
     private String description;
     private double price;
     public static final String DATA = "Products";
+    private int cartQuan = 0;
 
     public Product() {
 
@@ -102,4 +103,11 @@ public class Product {
         return false;
     }
 
+    public int getCartQuan() {
+        return cartQuan;
+    }
+
+    public void setCartQuan(int cartQuan) {
+        this.cartQuan = cartQuan;
+    }
 }

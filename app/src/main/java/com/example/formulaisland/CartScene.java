@@ -22,7 +22,6 @@ import com.example.formulaisland.adapters.ProductAdapter;
 import com.example.formulaisland.dataaccess.Address;
 import com.example.formulaisland.dataaccess.Product;
 import com.example.formulaisland.dataaccess.Cart;
-import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -74,11 +73,8 @@ public class CartScene extends AppCompatActivity {
         lvCart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Product product = cart.get(position);
                 Intent intent = new Intent(CartScene.this, SelectedProduct.class);
-                Gson gson = new Gson();
-                String product_json = gson.toJson(product);
-                intent.putExtra(PRODUCT, product_json);
+                intent.putExtra(PRODUCT, position);
                 startActivity(intent);
             }
         });

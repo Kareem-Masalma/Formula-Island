@@ -13,12 +13,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.formulaisland.dataaccess.Product;
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity {
 

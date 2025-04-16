@@ -1,24 +1,17 @@
 package com.example.formulaisland;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -40,7 +33,7 @@ public class Dashboard extends AppCompatActivity {
     private ImageButton btnSearch;
     private EditText edSearch;
     private ListView lvProducts;
-    private List<Product> products;
+    public static List<Product> products;
     public static final String PRODUCT = "Product";
     private SharedPreferences pref;
 
@@ -81,12 +74,12 @@ public class Dashboard extends AppCompatActivity {
                 String search = edSearch.getText().toString();
                 if (search.isBlank())
                     return;
-                List<Product> result = new ArrayList<>();
+                List<Integer> result = new ArrayList<>();
                 for (int i = 0; i < products.size(); i++) {
                     Product product = products.get(i);
                     if (product.getDescription().contains(search) || product.getColor().contains(search)
                             || product.getProductName().contains(search) || product.getTeam().contains(search))
-                        result.add(product);
+                        result.add(i);
                 }
 
                 Intent intent = new Intent(Dashboard.this, Search.class);
@@ -117,11 +110,8 @@ public class Dashboard extends AppCompatActivity {
         lvProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Product product = products.get(position);
                 Intent intent = new Intent(Dashboard.this, SelectedProduct.class);
-                Gson gson = new Gson();
-                String product_json = gson.toJson(product);
-                intent.putExtra(PRODUCT, product_json);
+                intent.putExtra(PRODUCT, position);
                 startActivity(intent);
             }
         });
@@ -133,10 +123,10 @@ public class Dashboard extends AppCompatActivity {
         String productsString = pref.getString(Product.DATA, "");
         String cartString = pref.getString(Cart.CART, "");
         if (!productsString.isBlank())
-            this.products = gson.fromJson(productsString, new TypeToken<List<Product>>() {
+            products = gson.fromJson(productsString, new TypeToken<List<Product>>() {
             }.getType());
         else
-            this.products = new ArrayList<>();
+            products = new ArrayList<>();
         if (!cartString.isBlank())
             Cart.cart = gson.fromJson(cartString, new TypeToken<List<Product>>() {
             }.getType());

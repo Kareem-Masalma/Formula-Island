@@ -1,12 +1,13 @@
 package com.example.formulaisland;
 
 import static com.example.formulaisland.Dashboard.PRODUCT;
+import static com.example.formulaisland.Dashboard.products;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,11 +20,13 @@ import com.example.formulaisland.dataaccess.Product;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Search extends AppCompatActivity {
 
     private ListView lvSearch;
+    private TextView tvNoResults;
     public static final String SEARCH = "Search";
 
     @Override
@@ -38,6 +41,8 @@ public class Search extends AppCompatActivity {
         });
 
         lvSearch = findViewById(R.id.lvSearch);
+        tvNoResults = findViewById(R.id.tvNoResults);
+
         addProductsList();
     }
 
@@ -45,20 +50,31 @@ public class Search extends AppCompatActivity {
         Intent intent = getIntent();
         String searchItem = intent.getStringExtra(SEARCH);
         Gson gson = new Gson();
-        List<Product> items = gson.fromJson(searchItem, new TypeToken<List<Product>>() {
+        List<Integer> positions = gson.fromJson(searchItem, new TypeToken<List<Integer>>() {
         }.getType());
-        ProductAdapter adapter = new ProductAdapter(this, items);
-        lvSearch.setAdapter(adapter);
-        lvSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Product product = items.get(position);
-                Intent intent = new Intent(Search.this, SelectedProduct.class);
-                Gson gson = new Gson();
-                String product_json = gson.toJson(product);
-                intent.putExtra(PRODUCT, product_json);
-                startActivity(intent);
+
+        List<Product> items = new ArrayList<>();
+        if (positions != null) {
+            for (int i = 0; i < positions.size(); i++) {
+                items.add(products.get(positions.get(i)));
             }
-        });
+        }
+
+        if (items.isEmpty()) {
+            tvNoResults.setVisibility(View.VISIBLE);
+            lvSearch.setVisibility(View.GONE);
+        } else {
+            tvNoResults.setVisibility(View.GONE);
+            lvSearch.setVisibility(View.VISIBLE);
+
+            ProductAdapter adapter = new ProductAdapter(this, items);
+            lvSearch.setAdapter(adapter);
+
+            lvSearch.setOnItemClickListener((parent, view, position, id) -> {
+                Intent productIntent = new Intent(Search.this, SelectedProduct.class);
+                intent.putExtra(PRODUCT, position);
+                startActivity(productIntent);
+            });
+        }
     }
 }

@@ -19,4 +19,5 @@
     <string name="your_cart">Your Cart</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="your_cart_is_empty">Your cart is empty.</string>
+    <string name="no_results_found">No results found.</string>
 </resources>

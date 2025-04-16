@@ -66,9 +66,8 @@ public class SelectedProduct extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void createScene() {
         Intent intent = getIntent();
-        String productString = intent.getStringExtra(Dashboard.PRODUCT);
-        Gson gson = new Gson();
-        product = gson.fromJson(productString, Product.class);
+        int productPos = intent.getIntExtra(Dashboard.PRODUCT, 0);
+        product = Dashboard.products.get(productPos);
         image.setImageResource(product.getImageCode());
         tvDescription.setText(product.getDescription() + ".\n");
         tvPrice.setText("Price: " + product.getPrice() + "$");

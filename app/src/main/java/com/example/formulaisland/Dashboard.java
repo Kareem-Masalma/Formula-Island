@@ -58,6 +58,19 @@ public class Dashboard extends AppCompatActivity {
         cartAction();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Gson gson = new Gson();
+        String products_json = gson.toJson(products);
+        String cart_json = gson.toJson(Cart.cart);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(Product.DATA, products_json);
+        editor.putString(Cart.CART, cart_json);
+        editor.apply();
+    }
+
     private void cartAction() {
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,19 +109,6 @@ public class Dashboard extends AppCompatActivity {
                 result.add(i);
         }
         return result;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Gson gson = new Gson();
-        String products_json = gson.toJson(products);
-        String cart_json = gson.toJson(Cart.cart);
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString(Product.DATA, products_json);
-        editor.putString(Cart.CART, cart_json);
-        editor.apply();
     }
 
     private void addProductsList() {

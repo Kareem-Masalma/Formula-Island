@@ -25,4 +25,15 @@
     <string name="order">Order:</string>
     <string name="and_always_remember">And always remember</string>
     <string name="forza_ferrari">FORZA FERRARI</string>
+    <string name="all">All</string>
+    <string name="ferrari">Ferrari</string>
+    <string name="mercedes">Mercedes</string>
+    <string name="red_bull">Red Bull</string>
+    <string name="mclaren">McLaren</string>
+    <string name="aston_martin">Aston Martin</string>
+    <string name="aston">Aston</string>
+    <string name="bulls">Bull</string>
+    <string name="red_nbull">Red\nBull</string>
+    <string name="mc_nlaren">Mc\nLaren</string>
+    <string name="aston_nmartin">Aston\nMartin</string>
 </resources>

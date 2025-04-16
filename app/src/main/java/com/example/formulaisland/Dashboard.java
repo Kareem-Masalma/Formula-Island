@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -34,7 +36,10 @@ public class Dashboard extends AppCompatActivity {
     private ImageButton btnSearch;
     private EditText edSearch;
     private ListView lvProducts;
+    private RadioGroup rgTeams;
     public static List<Product> products;
+    List<Product> filtered;
+
     public static final String PRODUCT = "Product";
     private SharedPreferences pref;
 
@@ -56,6 +61,7 @@ public class Dashboard extends AppCompatActivity {
         addProductsList();
         searchAction();
         cartAction();
+        filterAction();
     }
 
     @Override
@@ -69,6 +75,49 @@ public class Dashboard extends AppCompatActivity {
         editor.putString(Product.DATA, products_json);
         editor.putString(Cart.CART, cart_json);
         editor.apply();
+    }
+
+    private void filterAction() {
+        rgTeams.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton selectedButton = findViewById(checkedId);
+                String team = selectedButton.getText().toString();
+
+                String ferrari = "Ferrari";
+                String astonMartin = "Aston Martin";
+                String redbull = "RedBull";
+                String mercedes = "Mercedes";
+                String mclaren = "McLaren";
+
+                if (ferrari.toLowerCase().contains(team.toLowerCase()))
+                    filtered = filterByTeam(ferrari);
+                else if (astonMartin.toLowerCase().contains(team.toLowerCase()))
+                    filtered = filterByTeam(astonMartin);
+                else if (redbull.toLowerCase().contains(team.toLowerCase()))
+                    filtered = filterByTeam(redbull);
+                else if (mercedes.toLowerCase().contains(team.toLowerCase()))
+                    filtered = filterByTeam(mercedes);
+                else if (mclaren.toLowerCase().contains(team.toLowerCase()))
+                    filtered = filterByTeam(mclaren);
+                else
+                    filtered = products;
+
+
+                ProductAdapter adapter = new ProductAdapter(Dashboard.this, filtered);
+                lvProducts.setAdapter(adapter);
+            }
+        });
+    }
+
+    private List<Product> filterByTeam(String team) {
+        List<Product> result = new ArrayList<>();
+        for (Product p : Dashboard.products) {
+            if (p.getTeam().equalsIgnoreCase(team)) {
+                result.add(p);
+            }
+        }
+        return result;
     }
 
     private void cartAction() {
@@ -118,7 +167,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(Dashboard.this, SelectedProduct.class);
-                intent.putExtra(PRODUCT, position);
+                intent.putExtra(PRODUCT, products.indexOf(filtered.get(position)));
                 startActivity(intent);
             }
         });
@@ -140,6 +189,8 @@ public class Dashboard extends AppCompatActivity {
 
         for (int i = 0; i < Cart.cart.size(); i++)
             Cart.price += Cart.cart.get(i).getPrice();
+
+        filtered = products;
     }
 
     private void defineViews() {
@@ -147,5 +198,6 @@ public class Dashboard extends AppCompatActivity {
         this.btnSearch = findViewById(R.id.btnSearch);
         this.edSearch = findViewById(R.id.edSearch);
         this.lvProducts = findViewById(R.id.lvProducts);
+        this.rgTeams = findViewById(R.id.rgTeams);
     }
 }

@@ -77,16 +77,69 @@
         app:layout_constraintTop_toBottomOf="@+id/search"
         app:srcCompat="@drawable/banner2" />
 
+    <RadioGroup
+        android:id="@+id/rgTeams"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/banner">
+
+        <RadioButton
+            android:id="@+id/rbAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all"
+            android:textSize="11sp"/>
+
+        <RadioButton
+            android:id="@+id/rbFerrari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ferrari"
+            android:textSize="11sp"/>
+
+        <RadioButton
+            android:id="@+id/rbMercedes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mercedes"
+            android:textSize="11sp"/>
+
+        <RadioButton
+            android:id="@+id/rbRedBull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/red_nbull"
+            android:textSize="11sp"/>
+
+        <RadioButton
+            android:id="@+id/rbMcLaren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mc_nlaren"
+            android:textSize="11sp"/>
+
+        <RadioButton
+            android:id="@+id/rbAstonMartin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aston_nmartin"
+            android:textSize="11sp"/>
+    </RadioGroup>
+
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/banner"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/rgTeams">
 
         <ListView
+            android:id="@+id/lvProducts"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lvProducts"/>
+            android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

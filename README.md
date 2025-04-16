@@ -21,7 +21,19 @@ Welcome to **Formula Island**, the ultimate shopping destination for every Formu
 - **McLaren**
 - **Aston Martin**
 
+## 🛠️ Tech Used
+- **Programming Language:** Java
+- **UI Design and Layout:** XML 
+- **Development Environment:** Android Studio        
+- **Handling JSON Data:** GSON API     
+- **Version Control:** Git and GitHub  
+
 ## 🔧 Installation:
 Clone the repository:
 ```bash
 git clone https://github.com/Kareem-Masalma/Formula-Island.git
+```
+
+## 🧑‍💻 Student:
+#### Name: Kareem Masalma
+#### ID: 1220535

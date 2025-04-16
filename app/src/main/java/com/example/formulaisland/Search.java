@@ -72,7 +72,7 @@ public class Search extends AppCompatActivity {
 
             lvSearch.setOnItemClickListener((parent, view, position, id) -> {
                 Intent productIntent = new Intent(Search.this, SelectedProduct.class);
-                intent.putExtra(PRODUCT, position);
+                productIntent.putExtra(Dashboard.PRODUCT, Dashboard.products.indexOf(items.get(position)));
                 startActivity(productIntent);
             });
         }

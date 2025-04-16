@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -74,13 +75,7 @@ public class Dashboard extends AppCompatActivity {
                 String search = edSearch.getText().toString();
                 if (search.isBlank())
                     return;
-                List<Integer> result = new ArrayList<>();
-                for (int i = 0; i < products.size(); i++) {
-                    Product product = products.get(i);
-                    if (product.getDescription().contains(search) || product.getColor().contains(search)
-                            || product.getProductName().contains(search) || product.getTeam().contains(search))
-                        result.add(i);
-                }
+                List<Integer> result = getIntegers(search);
 
                 Intent intent = new Intent(Dashboard.this, Search.class);
                 Gson gson = new Gson();
@@ -89,6 +84,18 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @NonNull
+    private static List<Integer> getIntegers(String search) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < products.size(); i++) {
+            Product product = products.get(i);
+            if (product.getDescription().toLowerCase().contains(search.toLowerCase()) || product.getColor().toLowerCase().contains(search.toLowerCase())
+                    || product.getProductName().toLowerCase().contains(search.toLowerCase()) || product.getTeam().toLowerCase().contains(search.toLowerCase()))
+                result.add(i);
+        }
+        return result;
     }
 
     @Override
@@ -131,8 +138,8 @@ public class Dashboard extends AppCompatActivity {
             Cart.cart = gson.fromJson(cartString, new TypeToken<List<Product>>() {
             }.getType());
 
-        Log.d("CheckPoint", "Products: " + productsString);
-        Log.d("CheckPoint", "Carts: " + cartString);
+        for (int i = 0; i < Cart.cart.size(); i++)
+            Cart.price += Cart.cart.get(i).getPrice();
     }
 
     private void defineViews() {

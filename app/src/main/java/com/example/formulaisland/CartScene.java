@@ -2,6 +2,7 @@ package com.example.formulaisland;
 
 import static com.example.formulaisland.Dashboard.PRODUCT;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class CartScene extends AppCompatActivity {
     private Button btnCheck;
     private TextView tvMessage;
     private List<Product> cart;
+    private TextView tvTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,11 @@ public class CartScene extends AppCompatActivity {
             return insets;
         });
         defineViews();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getAddresses();
         getList();
     }
@@ -56,15 +63,20 @@ public class CartScene extends AppCompatActivity {
         spAddress.setAdapter(spAdapter);
     }
 
+    @SuppressLint("SetTextI18n")
     private void getList() {
         cart = Cart.cart;
         if (cart.isEmpty()) {
             tvMessage.setVisibility(View.VISIBLE);
             lvCart.setVisibility(View.GONE);
+            tvTotal.setText("Total: $0.00");
+            btnCheck.setEnabled(false);
             return;
         } else {
             tvMessage.setVisibility(View.GONE);
             lvCart.setVisibility(View.VISIBLE);
+            tvTotal.setText("Total: $" + Cart.price);
+            btnCheck.setEnabled(true);
         }
 
         ProductAdapter adapter = new ProductAdapter(this, cart);
@@ -74,7 +86,7 @@ public class CartScene extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(CartScene.this, SelectedProduct.class);
-                intent.putExtra(PRODUCT, position);
+                intent.putExtra(PRODUCT, Dashboard.products.indexOf(Cart.cart.get(position)));
                 startActivity(intent);
             }
         });
@@ -85,6 +97,7 @@ public class CartScene extends AppCompatActivity {
         spAddress = findViewById(R.id.spAddress);
         btnCheck = findViewById(R.id.btnCheck);
         tvMessage = findViewById(R.id.tvMessage);
+        tvTotal = findViewById(R.id.tvTotal);
     }
 
 }

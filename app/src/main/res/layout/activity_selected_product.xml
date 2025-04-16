@@ -17,7 +17,7 @@
         android:id="@+id/ivProduct"
         android:layout_width="wrap_content"
         android:layout_height="400dp"
-        android:scaleType="fitStart"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/aston_martin_am24_lego" />
 
     <TextView

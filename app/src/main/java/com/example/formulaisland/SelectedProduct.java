@@ -71,7 +71,18 @@ public class SelectedProduct extends AppCompatActivity {
         image.setImageResource(product.getImageCode());
         tvDescription.setText(product.getDescription() + ".\n");
         tvPrice.setText("Price: " + product.getPrice() + "$");
-        tvQuantity.setText("Quantity: " + product.getQuantity());
+        tvPrice.setTextColor(getColor(android.R.color.black));
+
+        if (product.getQuantity() == 0) {
+            tvQuantity.setText("Currently out of stock. This product will be available soon.");
+            tvQuantity.setTextColor(getColor(android.R.color.holo_red_dark));
+            btnCart.setEnabled(false);
+        } else {
+            tvQuantity.setText("Quantity: " + product.getQuantity());
+            tvQuantity.setTextColor(getColor(android.R.color.black));
+            btnCart.setEnabled(true);
+        }
+
         if (Cart.cart.contains(product)) {
             btnCart.setText("Remove from Cart");
             flag = true;

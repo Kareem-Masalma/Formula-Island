@@ -7,6 +7,13 @@ Welcome to **Formula Island**, the ultimate shopping destination for every Formu
 - **Exclusive Merchandise**: From scale models to collectibles, we've got everything to fuel your F1 passion.
 - **Latest Products**: Stay ahead of the curve with up-to-date releases from your favorite teams.
 
+## 🔑 Key Features
+- 🔍 Quick product search with a smart search bar  
+- 🛒 Cart system for easy checkout  
+- 🏁 Filter by team: Ferrari, Mercedes, Red Bull, McLaren, Aston Martin  
+- 📱 Fast, responsive, and easy-to-use interface  
+- 🎯 Perfect for every Formula 1 enthusiast  
+
 ## 🏆 Targeted Teams:
 - **Ferrari**
 - **Mercedes**
@@ -14,7 +21,19 @@ Welcome to **Formula Island**, the ultimate shopping destination for every Formu
 - **McLaren**
 - **Aston Martin**
 
+## 🛠️ Tech Used
+- **Programming Language:** Java
+- **UI Design and Layout:** XML 
+- **Development Environment:** Android Studio        
+- **Handling JSON Data:** GSON API     
+- **Version Control:** Git and GitHub  
+
 ## 🔧 Installation:
 Clone the repository:
 ```bash
 git clone https://github.com/Kareem-Masalma/Formula-Island.git
+```
+
+## 🧑‍💻 Student:
+#### Name: Kareem Masalma
+#### ID: 1220535

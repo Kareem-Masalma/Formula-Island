@@ -22,4 +22,7 @@
     <string name="no_results_found">No results found.</string>
     <string name="total">Total: $0.00</string>
     <string name="choose_quantity">Choose Quantity:</string>
+    <string name="order">Order:</string>
+    <string name="and_always_remember">And always remember</string>
+    <string name="forza_ferrari">FORZA FERRARI</string>
 </resources>

@@ -7,15 +7,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -40,7 +43,11 @@ public class CartScene extends AppCompatActivity {
     private TextView tvMessage;
     private List<Product> cart;
     private TextView tvTotal;
-    public static final String ORDER = "Order";
+    private CheckBox chkRemember;
+    public static final String ORDER = "History";
+    public static final String ADDRESS = "Address";
+    public static boolean remember = false;
+    public static String REMEMBER = "Remember Address";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,19 +71,27 @@ public class CartScene extends AppCompatActivity {
     }
 
     private void checkOut() {
+        cart = Cart.cart;
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Order order = new Order(cart, Cart.price);
+                Order order = getOrder();
                 Gson gson = new Gson();
+
+                for (int i = 0; i < Cart.cart.size(); i++)
+                    Log.d("Cart: ", Cart.cart.get(i).toString());
+
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(CartScene.this);
                 String ordersString = pref.getString(ORDER, "");
+                Log.d("Checkout", ordersString);
+
                 List<Order> ordersHistory;
-                if (!ordersString.isBlank())
+                if (!ordersString.isBlank()) {
                     ordersHistory = gson.fromJson(ordersString, new TypeToken<List<Order>>() {
                     }.getType());
-                else
+                } else {
                     ordersHistory = new ArrayList<>();
+                }
 
                 ordersHistory.add(order);
 
@@ -86,14 +101,46 @@ public class CartScene extends AppCompatActivity {
                     product.setCartQuan(0);
                 }
                 Cart.cart.clear();
+                Cart.price = 0.0;
 
                 SharedPreferences.Editor editor = pref.edit();
                 String orders_json = gson.toJson(ordersHistory);
                 editor.putString(ORDER, orders_json);
-                editor.commit();
+                if (chkRemember.isChecked()) {
+                    editor.putString(ADDRESS, spAddress.getSelectedItem().toString());
+                    remember = true;
+                    editor.putBoolean(REMEMBER, remember);
+                } else {
+                    remember = false;
+                    editor.putBoolean(REMEMBER, remember);
+                }
+                editor.apply();
+                Intent intent = new Intent(CartScene.this, Checkout.class);
+                startActivity(intent);
             }
         });
     }
+
+    @NonNull
+    private Order getOrder() {
+        List<Product> copiedCart = new ArrayList<>();
+        for (Product p : cart) {
+            Product copy = new Product(
+                    p.getTeam(),
+                    p.getProductName(),
+                    p.getColor(),
+                    p.getDescription(),
+                    p.getImageCode(),
+                    p.getQuantity(),
+                    p.getPrice()
+            );
+            copy.setCartQuan(p.getCartQuan());
+            copiedCart.add(copy);
+        }
+
+        return new Order(copiedCart, Cart.price, spAddress.getSelectedItem().toString());
+    }
+
 
     private void getAddresses() {
         String[] addresses = Address.getData();
@@ -101,6 +148,22 @@ public class CartScene extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, addresses);
 
         spAddress.setAdapter(spAdapter);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String address = pref.getString(ADDRESS, "");
+        remember = pref.getBoolean(REMEMBER, false);
+        int pos = -1;
+        for (int i = 0; i < addresses.length; i++) {
+            if (addresses[i].equals(address))
+                pos = i;
+        }
+        if (remember && pos >= 0) {
+            spAddress.setSelection(pos);
+            chkRemember.setChecked(true);
+        } else {
+            spAddress.setSelection(0);
+            chkRemember.setChecked(false);
+        }
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -138,6 +201,7 @@ public class CartScene extends AppCompatActivity {
         btnCheck = findViewById(R.id.btnCheck);
         tvMessage = findViewById(R.id.tvMessage);
         tvTotal = findViewById(R.id.tvTotal);
+        chkRemember = findViewById(R.id.chkRemember);
     }
 
 }

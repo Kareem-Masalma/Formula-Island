@@ -15,6 +15,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.formulaisland.dataaccess.Order;
 import com.google.gson.Gson;
 
+/**
+ * This Activity is the final destination for the user. After checking out the order details are
+ * presented for the user, Order ID, Total Price and Date.
+ * */
 public class Checkout extends AppCompatActivity {
 
     private TextView tvOrder;

@@ -18,10 +18,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.formulaisland.dataaccess.Cart;
 import com.example.formulaisland.dataaccess.Product;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * This Activity presents the information of a product that the user chose from the list. It presents
+ * the products image, quantity, price and description.
+ * If the product is sold out there is a message presented in red for the user, the quantity spinner
+ * and the add to cart button are disabled.
+ * */
 
 public class SelectedProduct extends AppCompatActivity {
 
@@ -50,6 +56,8 @@ public class SelectedProduct extends AppCompatActivity {
         addActions();
     }
 
+    /** If the product is already inside the cart the button text will be "Remove from Cart" if not
+     * the message will be "Add to Cart" */
     @SuppressLint("SetTextI18n")
     private void addActions() {
         btnCart.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +115,7 @@ public class SelectedProduct extends AppCompatActivity {
 
         int maxQty = product.getQuantity();
 
+        // List quantities will allow the user to buy up to 5 of each product.
         List<Integer> quantities = new ArrayList<>();
         for (int i = 1; i <= 5 && i <= maxQty; i++) {
             quantities.add(i);

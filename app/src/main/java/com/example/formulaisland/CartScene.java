@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,19 +34,37 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This Activity is for the Cart where the user adds their products before checking out. It contains
+ * spinner to choose the address of the user's city and a check box to see weather the user wants their
+ * address to be saved or not.
+ * All orders are stored inside the SharedPreference with their data. And any new order will be added
+ * to these list of orders.
+ * <p>
+ * The products are presented in ListView using custom Adapter. The listview has an EventHandler that
+ * takes the pressed product to Selected product page to present the product's data.
+ * <p>
+ * When pressing checkout an Order object is created with the current date, random 5 digits id, the
+ * products inside the cart and the total price. And store the object in the SharedPreference.
+ * **/
+
 public class CartScene extends AppCompatActivity {
 
     private ListView lvCart;
     private Spinner spAddress;
     private Button btnCheck;
     private TextView tvMessage;
-    private List<Product> cart;
     private TextView tvTotal;
     private CheckBox chkRemember;
-    public static final String ORDER = "History";
-    public static final String ADDRESS = "Address";
+    private List<Product> cart;
+    /** Parameter remember is used to check if the address is stored in the SharedPreference */
     public static boolean remember = false;
-    public static String REMEMBER = "Remember Address";
+    /** Parameter ORDER is used as the key for the orders list stored in the SharedPreference */
+    public static final String ORDER = "History";
+    /** Parameter ADDRESS is used as the key for the address stored in the SharedPreference */
+    public static final String ADDRESS = "Address";
+    /** Parameter ORDER is used as the key for the boolean remember stored in the SharedPreference */
+    public static final String REMEMBER = "Remember Address";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +79,10 @@ public class CartScene extends AppCompatActivity {
         defineViews();
     }
 
+    /**
+     * Inside the onResume function the cart data are represented again so any changes happened to
+     * the data will be updated in the ListView.
+     * **/
     @Override
     protected void onResume() {
         super.onResume();
@@ -78,12 +99,8 @@ public class CartScene extends AppCompatActivity {
                 Order order = getOrder();
                 Gson gson = new Gson();
 
-                for (int i = 0; i < Cart.cart.size(); i++)
-                    Log.d("Cart: ", Cart.cart.get(i).toString());
-
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(CartScene.this);
                 String ordersString = pref.getString(ORDER, "");
-                Log.d("Checkout", ordersString);
 
                 List<Order> ordersHistory;
                 if (!ordersString.isBlank()) {
@@ -122,6 +139,7 @@ public class CartScene extends AppCompatActivity {
         });
     }
 
+    /** This method is to create a deep copy of the product to store it in the order and the SharedPreference */
     @NonNull
     private Order getOrder() {
         List<Product> copiedCart = new ArrayList<>();
@@ -143,6 +161,7 @@ public class CartScene extends AppCompatActivity {
     }
 
 
+    /** Getting the addresses and check if there is a stored address inside the SharedPreference */
     private void getAddresses() {
         String[] addresses = Address.getData();
         ArrayAdapter<String> spAdapter = new ArrayAdapter<>(this,

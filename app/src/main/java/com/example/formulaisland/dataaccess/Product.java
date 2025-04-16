@@ -83,6 +83,14 @@ public class Product {
         this.price = price;
     }
 
+    public int getCartQuan() {
+        return cartQuan;
+    }
+
+    public void setCartQuan(int cartQuan) {
+        this.cartQuan = cartQuan;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -101,13 +109,5 @@ public class Product {
         if (o instanceof Product)
             return this.imageCode == ((Product) o).getImageCode();
         return false;
-    }
-
-    public int getCartQuan() {
-        return cartQuan;
-    }
-
-    public void setCartQuan(int cartQuan) {
-        this.cartQuan = cartQuan;
     }
 }

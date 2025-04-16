@@ -1,6 +1,5 @@
 package com.example.formulaisland;
 
-import static com.example.formulaisland.Dashboard.PRODUCT;
 import static com.example.formulaisland.Dashboard.products;
 
 import android.content.Intent;
@@ -23,10 +22,15 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This Activity is to present the list of products are relatable to the user's search.
+ * */
+
 public class Search extends AppCompatActivity {
 
     private ListView lvSearch;
     private TextView tvNoResults;
+    /** Parameter SEARCH is used as the key for the result product list for the user's search */
     public static final String SEARCH = "Search";
 
     @Override

@@ -16,9 +16,14 @@ import com.example.formulaisland.dataaccess.Product;
 
 import java.util.List;
 
+/**
+ * This class is a Product Adapter to add the list of products to the ListView and customize it
+ * using Images and text.
+ * **/
+
 public class ProductAdapter extends ArrayAdapter<Product> {
-    private Context context;
-    private List<Product> productList;
+    private final Context context;
+    private final List<Product> productList;
 
     public ProductAdapter(Context context, List<Product> products) {
         super(context, 0, products);

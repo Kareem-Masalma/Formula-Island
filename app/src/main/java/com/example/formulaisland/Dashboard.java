@@ -39,7 +39,7 @@ public class Dashboard extends AppCompatActivity {
     private RadioGroup rgTeams;
     public static List<Product> products;
     List<Product> filtered;
-
+    /** Parameter PRODUCT is used as the key for the products list stored in the SharedPreference */
     public static final String PRODUCT = "Product";
     private SharedPreferences pref;
 
@@ -92,13 +92,13 @@ public class Dashboard extends AppCompatActivity {
 
                 if (ferrari.toLowerCase().contains(team.toLowerCase()))
                     filtered = filterByTeam(ferrari);
-                else if (astonMartin.toLowerCase().contains(team.toLowerCase()))
+                else if (astonMartin.toLowerCase().contains(team.toLowerCase().replace("\n", " ")))
                     filtered = filterByTeam(astonMartin);
-                else if (redbull.toLowerCase().contains(team.toLowerCase()))
+                else if (redbull.toLowerCase().contains(team.toLowerCase().replace("\n", " ")))
                     filtered = filterByTeam(redbull);
                 else if (mercedes.toLowerCase().contains(team.toLowerCase()))
                     filtered = filterByTeam(mercedes);
-                else if (mclaren.toLowerCase().contains(team.toLowerCase()))
+                else if (mclaren.toLowerCase().contains(team.toLowerCase().replace("\n", "")))
                     filtered = filterByTeam(mclaren);
                 else
                     filtered = products;

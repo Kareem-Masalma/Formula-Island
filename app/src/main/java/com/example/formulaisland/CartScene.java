@@ -116,6 +116,7 @@ public class CartScene extends AppCompatActivity {
                 }
                 editor.apply();
                 Intent intent = new Intent(CartScene.this, Checkout.class);
+                intent.putExtra(ORDER, gson.toJson(order));
                 startActivity(intent);
             }
         });

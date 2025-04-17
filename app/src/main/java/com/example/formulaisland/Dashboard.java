@@ -86,7 +86,7 @@ public class Dashboard extends AppCompatActivity {
 
                 String ferrari = "Ferrari";
                 String astonMartin = "Aston Martin";
-                String redbull = "RedBull";
+                String redbull = "Red bull";
                 String mercedes = "Mercedes";
                 String mclaren = "McLaren";
 
